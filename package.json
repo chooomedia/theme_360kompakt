@@ -1,0 +1,17 @@
+{
+	"name": "theme_360kmpakt",
+	"description": "theme_360kmpakt Childtheme from generatepress",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
+	"author": "Lightweb Media GmbH Rene",
+	"license": "GPL-2.0",
+	"devDependencies": {
+		"@wordpress/scripts": "^25.2.0",
+		"extract-loader": "^4.0.3",
+		"file-loader": "^6.2.0",
+		"ignore-emit-webpack-plugin": "^2.0.6",
+		"mini-css-extract-plugin": "^2.7.2"
+	}
+}
