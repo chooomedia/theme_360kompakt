@@ -75,7 +75,7 @@ function generate_custom_404_text()
 
 // Change 404 Page Search Form
 function wpdocs_my_search_form( $form ) {
-	$form = '<form role="search" method="get" action="https://360kompakt.de" class="wp-block-search__button-inside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label screen-reader-text">Suchen</label><div class="wp-block-search__inside-wrapper " ><input type="search" id="wp-block-search__input-1" class="wp-block-search__input wp-block-search__input " name="s" value="" placeholder="Suchen..."  required /><button type="submit" class="wp-block-search__button wp-element-button">Suchen</button></div></form>';
+	$form = '<form role="search" method="get" action="/" class="wp-block-search__button-inside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label screen-reader-text">Suchen</label><div class="wp-block-search__inside-wrapper " ><input type="search" id="wp-block-search__input-1" class="wp-block-search__input wp-block-search__input " name="s" value="" placeholder="Suchen..."  required /><button type="submit" class="wp-block-search__button wp-element-button">Suchen</button></div></form>';
 
 	return $form;
 }
