@@ -8,6 +8,7 @@ const mode = isProduction ? 'production' : 'development';
 
 const jsFiles = {
     'js-file': path.resolve(process.cwd(), 'assets/js', 'main.js'),
+    'backend': path.resolve(process.cwd(), 'assets/js/backend', 'widgets.js')
 };
 const scssFiles = {
     'style': path.resolve(process.cwd(), 'assets/scss', 'style.scss'),

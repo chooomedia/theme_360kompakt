@@ -37,7 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="archive-single-content">
 			<header <?php generate_do_attr( 'entry-header' ); ?>>
             <?php
-            $category = get_the_category(); echo '<span class="archive-single-category">'.$category[0]->cat_name.'</span>';
+    
+			do_shortcode('[categorys]');
             ?>
 				<?php
 				/**
@@ -54,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
                 
                 ?>
-                <div class="archive-single-author-info">
+                <div class="author-info">
                     <?php
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
@@ -78,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
 
 			<div class="entry-summary"<?php echo $itemprop; // phpcs:ignore -- No escaping needed. ?>>
-				<?php the_excerpt(); ?>
+				<?php the_excerpt() ?>
 			</div>
 
 		<?php else : ?>
@@ -105,7 +106,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 *
 		 * @since 0.1
 		 */
-		do_action( 'generate_after_content' );
+		//do_action( 'generate_after_content' );
+		
 		?>
         <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
 	</div>

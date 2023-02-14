@@ -8,6 +8,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
+global $post;  
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata( 'article' ); ?>>
@@ -32,7 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 * @since 0.1
 				 */
 				do_action( 'generate_before_entry_title' );
-                echo '<span class="category-list">'. get_the_category()[0]->name .'</span>';
+                echo '<span class="category-list">'. do_shortcode('[categorys]') .'</span>';
+
 				if ( generate_show_title() ) {
 					$params = generate_get_the_title_parameters();
 
