@@ -1,8 +1,50 @@
 $mobile-menu-breakpoint: 960px;
 
 // General
-img{
+img {
     border-radius: 4px;
+}
+
+// Author Infos
+.author-info {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px 0px 0px;
+    font-size: 12px;
+    flex-wrap: wrap;
+
+    a {
+        text-decoration: none;
+    }
+            
+    img {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        margin-right: .2rem;
+    }
+
+    .reviewed-by {
+        padding-left: .5rem;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: "";
+            padding-right: .5rem;
+            position: relative;
+            top: -1px;
+        }
+
+        .shield {
+            padding-right: .2rem;
+            svg {
+                display: block;
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
 }
 
 // Main Navigation 
@@ -103,22 +145,7 @@ body:not(.single, .page) #primary, .featured-posts{
                                 
     }
 }
-/* Author Infos */
-.author-info{
-    display: flex;
-    align-items: center;
-    margin: 20px 0px 0px 0px;
-    font-size: 12px;
 
-    a{text-decoration: none;}
-            
-    img{
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-        margin-right: 8px;
-    }
-}
 
 body.single-post{
     .author-info{
