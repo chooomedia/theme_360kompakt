@@ -49,9 +49,8 @@ img {
 .author-box{
     
     display: flex;
-    // background: var(--border);
-    background: rgb(30,115,190);
-    background: linear-gradient(90deg, rgba(30,115,190,1) 0%, rgba(30,115,190,1) 40%, rgba(100,159,246,1) 100%);
+    background: $author-box-fallback-background;
+    background: $author-box-background;
     color: #fff;
     align-items: center;
 
@@ -152,7 +151,7 @@ body:not(.single, .page) #primary, .featured-posts{
                 text-transform: uppercase;
                 font-size: 12px;
                 letter-spacing: 0.82px;
-                color: #8E9BAA;
+                color: $category-name-color;
             }
 
             .entry-title{
@@ -187,10 +186,12 @@ body.single-post{
     }
 }
 /* END - Styles for Archives */
+
 .inside-article .featured-image img{
     width: 100%;
 }
 
+/* Search bar */
 .wp-block-search__inside-wrapper{
     border: none;
     input{
@@ -198,7 +199,7 @@ body.single-post{
     }
     button{
         background: var(--accent-2);
-        color: #272727;
+        color: $search-bar-button-text-color;
         text-shadow: none;
         font-size: 14px;
         margin-left: 0px;
@@ -280,7 +281,7 @@ body.error404{
     .entry-title center:after{
         display: block;
         height: 2px;
-        background: #fab526;
+        background: var(--accent-2);
         width: 80px;
         content: ' ';
         margin: 9px auto 20px auto;
@@ -334,7 +335,7 @@ body.author{
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.82px;
-    color: #8E9BAA;
+    color: $category-name-color;
     margin-bottom: 15px;
     display: block;
 }

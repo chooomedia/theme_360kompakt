@@ -269,6 +269,7 @@ body.single-post .author-info {
   width: 100%;
 }
 
+/* Search bar */
 .wp-block-search__inside-wrapper {
   border: none;
 }
@@ -348,7 +349,7 @@ body.single-post .featured-image {
 body.error404 .entry-title center:after {
   display: block;
   height: 2px;
-  background: #fab526;
+  background: var(--accent-2);
   width: 80px;
   content: " ";
   margin: 9px auto 20px auto;
