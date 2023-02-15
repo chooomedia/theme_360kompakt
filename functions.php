@@ -12,12 +12,42 @@ define( 'THREEK_THEME_URL', get_stylesheet_directory_uri() );
 define( 'THREEK_THEME_PATH', get_stylesheet_directory() );
 define( 'THREEK_VERSION', '1.0.0' );
 
-add_action( 'wp_enqueue_scripts', 'threek_enqueue_child_theme_styles', PHP_INT_MAX);
-
 function threek_enqueue_child_theme_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
-    wp_enqueue_style( 'threek-style', THREEK_THEME_URL.'/assets/style/style.min.css', array('parent-style'),THREEK_VERSION   );
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'threek-style', THREEK_THEME_URL . '/build/main.css', ['parent-style'], filemtime( THREEK_THEME_PATH . '/build/main.css' ) );
+    wp_enqueue_script( 'threek-slider', THREEK_THEME_URL . '/build/slider.js', [], filemtime( THREEK_THEME_PATH . '/build/slider.js' ), true );
 }
+add_action( 'wp_enqueue_scripts', 'threek_enqueue_child_theme_styles' );
+
+function backend_assets() {
+	wp_enqueue_script( 
+        'threek-be-js', 
+        THREEK_THEME_URL . '/build/backend.js', 
+        ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill'], 
+        filemtime( THREEK_THEME_PATH . '/build/backend.js' ), 
+        true 
+    );
+}
+add_action('admin_enqueue_scripts', 'backend_assets');
+
+add_image_size( 'widget-slider-770', 770, 450, true );
+add_image_size( 'widget-slider-450', 450, 263, true );
+
+function add_custom_sizes_to_gutenberg( $sizes ) {
+  return array_merge( $sizes, [
+    'widget-slider-770' => __('Slider 770', 'threek'),
+    'widget-slider-450' => __('Slider 450', 'threek'),
+  ] );
+}
+add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
+
+
+// includes
+require_once __DIR__ . '/classes/CheckedBy.php';
+add_action( 'init', function() {
+    new \Threek\CheckedBy;
+} );
+
 
 // Shortcode to display the Site Name
 add_shortcode( 'site_name','site_name_shortcode' );
@@ -45,7 +75,7 @@ function generate_custom_404_text()
 
 // Change 404 Page Search Form
 function wpdocs_my_search_form( $form ) {
-	$form = '<form role="search" method="get" action="https://360kompakt.10.41.41.70.nip.io/" class="wp-block-search__button-inside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label screen-reader-text">Suchen</label><div class="wp-block-search__inside-wrapper " ><input type="search" id="wp-block-search__input-1" class="wp-block-search__input wp-block-search__input " name="s" value="" placeholder="Suchen..."  required /><button type="submit" class="wp-block-search__button wp-element-button">Suchen</button></div></form>';
+	$form = '<form role="search" method="get" action="/" class="wp-block-search__button-inside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label screen-reader-text">Suchen</label><div class="wp-block-search__inside-wrapper " ><input type="search" id="wp-block-search__input-1" class="wp-block-search__input wp-block-search__input " name="s" value="" placeholder="Suchen..."  required /><button type="submit" class="wp-block-search__button wp-element-button">Suchen</button></div></form>';
 
 	return $form;
 }

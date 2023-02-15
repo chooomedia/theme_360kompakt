@@ -2,16 +2,15 @@
 	"name": "theme_360kmpakt",
 	"description": "theme_360kmpakt Childtheme from generatepress",
 	"scripts": {
-		"start": "wp-scripts start",
-		"build": "wp-scripts build"
+		"dev": "wp-scripts start assets/js/main.js assets/js/slider.js assets/js/backend/backend.js",
+		"build": "wp-scripts build assets/js/main.js assets/js/slider.js assets/js/backend/backend.js"
 	},
 	"author": "Lightweb Media GmbH Rene",
 	"license": "GPL-2.0",
 	"devDependencies": {
-		"@wordpress/scripts": "^25.2.0",
-		"extract-loader": "^4.0.3",
-		"file-loader": "^6.2.0",
-		"ignore-emit-webpack-plugin": "^2.0.6",
-		"mini-css-extract-plugin": "^2.7.2"
+		"@wordpress/scripts": "^25.2.0"
+	},
+	"dependencies": {
+		"hammerjs": "^2.0.8"
 	}
 }
