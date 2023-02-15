@@ -43,7 +43,7 @@ add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
 
 
 // includes
-require_once __DIR__ . '/classes/CheckedBy.php';
+require_once THREEK_THEME_PATH . '/classes/CheckedBy.php';
 add_action( 'init', function() {
     new \Threek\CheckedBy;
 } );
