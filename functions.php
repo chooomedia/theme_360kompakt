@@ -61,7 +61,7 @@ function site_name_shortcode()
 add_filter( 'generate_404_title','generate_custom_404_title' );
 function generate_custom_404_title()
 {
-      return '<center>Nichts gefunden</center>';
+      return __('<center>Nichts gefunden</center>', 'threek');
 }
 
 
@@ -69,7 +69,7 @@ function generate_custom_404_title()
 add_filter( 'generate_404_text','generate_custom_404_text' );
 function generate_custom_404_text()
 {
-      return '<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>';
+      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'threek');
 }
 
 
@@ -200,7 +200,7 @@ function show_featured_posts(){
 		endif;
 
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
 	</div>
 </article>
 
