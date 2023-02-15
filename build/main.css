@@ -115,7 +115,7 @@ img {
   display: flex;
   align-items: center;
   margin: 20px 0px 0px 0px;
-  font-size: 0.75rem;
+  font-size: 12px;
   flex-wrap: wrap;
 }
 .author-info a {
@@ -172,11 +172,7 @@ img {
   display: block;
 }
 .author-box .author-box_name {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-.author-box .author-box_bio {
-  font-size: 1rem;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -241,17 +237,17 @@ body:not(.single, .page) #primary article.post .inside-article .archive-single-f
 }
 body:not(.single, .page) #primary article.post .inside-article .archive-single-content .archive-single-category, .featured-posts article.post .inside-article .archive-single-content .archive-single-category {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 12px;
   letter-spacing: 0.82px;
   color: #8E9BAA;
 }
 body:not(.single, .page) #primary article.post .inside-article .archive-single-content .entry-title, .featured-posts article.post .inside-article .archive-single-content .entry-title {
-  font-size: 1.4rem;
+  font-size: 22.4px;
   font-weight: 600;
   margin-top: 10px;
 }
 body:not(.single, .page) #primary article.post .inside-article .archive-single-content .entry-summary, .featured-posts article.post .inside-article .archive-single-content .entry-summary {
-  font-size: 1rem;
+  font-size: 16px;
   margin: 25px 0px 10px 0px;
 }
 body:not(.single, .page) #primary article.post .inside-article .archive-single-content .read-more a, .featured-posts article.post .inside-article .archive-single-content .read-more a {
@@ -259,7 +255,7 @@ body:not(.single, .page) #primary article.post .inside-article .archive-single-c
   display: block;
   padding: 15px 0;
   border-top: 1px solid var(--border);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -284,7 +280,7 @@ body.single-post .author-info {
   background: var(--accent-2);
   color: #272727;
   text-shadow: none;
-  font-size: 0.9rem;
+  font-size: 14px;
   margin-left: 0px;
   border-radius: 0 3px 3px 0;
   padding: 7px 10px 5px;
@@ -301,7 +297,7 @@ body.single-post .author-info {
 
 /* Pagination */
 .paging-navigation .nav-links > * {
-  font-size: 0.9rem;
+  font-size: 14px;
   background: var(--accent-2);
   color: inherit;
   padding: 10px 15px !important;
@@ -321,6 +317,7 @@ body.single-post .author-info {
 }
 .page-header h1, .page-header h2, .home-headline h1, .home-headline h2 {
   border-bottom: 1px solid var(--border);
+  font-size: 32px;
 }
 
 .home-headline > div:first-child {
@@ -362,6 +359,8 @@ body.error404 .entry-content > article > .inside-article {
   padding-right: 0px;
 }
 body.error404 .entry-content > h2 {
+  font-size: 32px;
+  font-weight: 400px;
   text-align: center;
   margin-top: 80px;
 }
@@ -385,12 +384,12 @@ body.author .author_bio_section .author-avatar img {
 }
 body.author .author_bio_section .author-info {
   text-align: center;
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 .category-list {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 12px;
   letter-spacing: 0.82px;
   color: #8E9BAA;
   margin-bottom: 15px;

@@ -8,7 +8,7 @@ img {
     display: flex;
     align-items: center;
     margin: 20px 0px 0px 0px;
-    font-size: $small-text;
+    font-size: 12px;
     flex-wrap: wrap;
 
     a {
@@ -74,12 +74,7 @@ img {
     }
 
     .author-box_name{
-        font-size: $author-name-text;
-        font-weight: 600;
-    }
-
-    .author-box_bio{
-        font-size: $author-info-text;
+        font-size: 20px;
         font-weight: 600;
     }
 }
@@ -154,19 +149,19 @@ body:not(.single, .page) #primary, .featured-posts{
 
             .archive-single-category{
                 text-transform: uppercase;
-                font-size: $small-text;
+                font-size: 12px;
                 letter-spacing: 0.82px;
                 color: $category-name-color;
             }
 
             .entry-title{
-                font-size: $archive-h2-text;
+                font-size: 22.4px;
                 font-weight: 600;
                 margin-top: 10px;
             }
 
             .entry-summary{
-                font-size: $archive-excerpt-text;
+                font-size: 16px;
                 margin: 25px 0px 10px 0px;
             }
 
@@ -175,7 +170,7 @@ body:not(.single, .page) #primary, .featured-posts{
                 display: block;
                 padding: 15px 0;
                 border-top: 1px solid var(--border);
-                font-size: $small-text;
+                font-size: 12px;
                 font-weight: 700;
             }
         }
@@ -206,7 +201,7 @@ body.single-post{
         background: var(--accent-2);
         color: $search-bar-button-text-color;
         text-shadow: none;
-        font-size: $button-text;
+        font-size: 14px;
         margin-left: 0px;
         border-radius: 0 3px 3px 0;
         padding: 7px 10px 5px;
@@ -229,7 +224,7 @@ body.single-post{
 
 /* Pagination */
 .paging-navigation .nav-links>*{
-    font-size: $button-text;
+    font-size: 14px;
     background: var(--accent-2);
     color: inherit;
     padding: 10px 15px !important;
@@ -248,6 +243,7 @@ body.single-post{
     padding-bottom: 0px !important;
     h1, h2{
         border-bottom: 1px solid var(--border);
+        font-size: 32px;
     }
 }
 .home-headline>div:first-child{
@@ -297,6 +293,8 @@ body.error404{
     }
 
     .entry-content>h2{
+        font-size: 32px;
+        font-weight: 400px;
         text-align: center;
         margin-top: 80px;
     }
@@ -324,7 +322,7 @@ body.author{
 
         .author-info{
             text-align: center;
-            font-size: $author-info-text;
+            font-size: 15px;
         }
     }
 }
@@ -335,7 +333,7 @@ body.author{
 // Category list style [categorys]-Shortcode
 .category-list{
     text-transform: uppercase;
-    font-size: $small-text;
+    font-size: 12px;
     letter-spacing: 0.82px;
     color: $category-name-color;
     margin-bottom: 15px;
