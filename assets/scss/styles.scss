@@ -228,7 +228,7 @@ body.single-post{
     font-size: 14px;
     background: var(--accent-2);
     color: inherit;
-    padding: 10px 15px;
+    padding: 10px 15px !important;
     border-bottom: 0;
     text-decoration: none;
     border-radius: 3px;
@@ -360,7 +360,7 @@ body.author{
 
     .inside-article{
         flex-direction: column;
-        padding: 0px;
+        padding: 0px !important;
         gap: 0px !important;
         box-shadow: 0 0 20px rgb(1 0 0 / 10%);
         border-radius: 4px;
