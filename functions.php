@@ -91,7 +91,7 @@ function show_author_box(){
     ?>
     <div class="author-box">
             <div class="author-box-avatar">
-                <img src=<?php echo get_avatar_url($author_id); ?>/>
+                <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
             </div>
             <div class="author-box-meta">
                 <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
@@ -174,7 +174,8 @@ function show_featured_posts(){
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
 					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img src="'.get_avatar_url($author_id).'"/> Von '. $linkToAuthor . get_author_name($author_id).'</a>';
+                    echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
+
                     ?>
                 </div>
 			</header>
