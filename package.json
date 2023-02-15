@@ -5,7 +5,7 @@
 		"dev": "wp-scripts start assets/js/main.js assets/js/slider.js assets/js/backend/backend.js",
 		"build": "wp-scripts build assets/js/main.js assets/js/slider.js assets/js/backend/backend.js"
 	},
-	"author": "Lightweb Media GmbH Rene",
+	"author": "Rene Kutter",
 	"license": "GPL-2.0",
 	"devDependencies": {
 		"@wordpress/scripts": "^25.2.0"
