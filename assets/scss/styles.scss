@@ -1,5 +1,3 @@
-$mobile-menu-breakpoint: 960px;
-
 // General
 img {
     border-radius: 4px;
@@ -61,7 +59,7 @@ img {
     gap: 20px;
     margin-top: 40px;
 
-    @media (max-width: 500px) {
+    @media (max-width: $author-box-breakpoint) {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -381,7 +379,7 @@ body.author{
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $hide-featured-posts-breakpoint) {
     article:nth-child(2), article:nth-child(3){
         display: none;
     }
@@ -390,7 +388,7 @@ body.author{
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: $outer-screen-padding-breakpoint) {
 
     .featured-posts{
         padding: 0px 30px 0px 30px;
