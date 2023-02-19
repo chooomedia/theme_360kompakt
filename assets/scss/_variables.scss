@@ -1,1 +1,21 @@
-// $test: var(--bla-1, red);
+// Breakpoints
+$mobile-menu-breakpoint: 960px;
+$author-box-breakpoint: 500px;
+$hide-featured-posts-breakpoint: 960px;
+$outer-screen-padding-breakpoint: 770px;
+
+// Backgrounds
+$author-box-background: linear-gradient(90deg, rgba(30,115,190,1) 0%, rgba(30,115,190,1) 40%, rgba(100,159,246,1) 100%);
+$author-box-fallback-background: rgb(30,115,190);
+
+// Text Colors
+$category-name-color: #8E9BAA;
+$search-bar-button-text-color: #272727;
+
+// Text Sizes
+$small-text: .75rem;
+$archive-h2-text: 1.4rem;
+$archive-excerpt-text: 1rem;
+$author-name-text: 1.3rem;
+$author-info-text: 1rem;
+$button-text: 0.9rem;

@@ -43,25 +43,19 @@ add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
 
 
 // includes
-require_once __DIR__ . '/classes/CheckedBy.php';
+require_once THREEK_THEME_PATH . '/classes/CheckedBy.php';
 add_action( 'init', function() {
     new \Threek\CheckedBy;
 } );
 
-
-// Shortcode to display the Site Name
-add_shortcode( 'site_name','site_name_shortcode' );
-function site_name_shortcode()
-{
-    return get_bloginfo($show = 'name');
-}
+require_once THREEK_THEME_PATH . '/shortcodes.php';
 
 
 // Change 404 Page Title
 add_filter( 'generate_404_title','generate_custom_404_title' );
 function generate_custom_404_title()
 {
-      return '<center>Nichts gefunden</center>';
+      return __('<center>Nichts gefunden</center>', 'threek');
 }
 
 
@@ -69,7 +63,7 @@ function generate_custom_404_title()
 add_filter( 'generate_404_text','generate_custom_404_text' );
 function generate_custom_404_text()
 {
-      return '<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>';
+      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'threek');
 }
 
 
@@ -91,7 +85,7 @@ function show_author_box(){
     ?>
     <div class="author-box">
             <div class="author-box-avatar">
-                <img src=<?php echo get_avatar_url($author_id); ?>/>
+                <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
             </div>
             <div class="author-box-meta">
                 <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
@@ -102,30 +96,6 @@ function show_author_box(){
     <?php 
 }
 add_action('generate_after_content', 'show_author_box');
-
-
-/* Get Categorys of Post
-Output (string): "Cat1, Cat2"
-*/
-add_shortcode( 'categorys','show_all_categorys_of_post' );
-function show_all_categorys_of_post(){
-    $post_categories = wp_get_post_categories( get_the_ID(), array( 'fields' => 'names' ) );
-    $names = '';
-	if( $post_categories ){
-		foreach($post_categories as $key => $name){
-            // Check if is not last loop
-            if ($key !== array_key_last($post_categories)) {
-                $space = ', ';
-            }else{
-                $space = '';
-            }
-        
-			$names .= $name . $space;
-		}
-    } 
-
-    echo '<span class="category-list">'. $names .'</span>';
-}
 
 
 // 3 featured posts on home page
@@ -174,7 +144,8 @@ function show_featured_posts(){
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
 					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img src="'.get_avatar_url($author_id).'"/> Von '. $linkToAuthor . get_author_name($author_id).'</a>';
+                    echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
+
                     ?>
                 </div>
 			</header>
@@ -200,7 +171,7 @@ function show_featured_posts(){
 		endif;
 
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
 	</div>
 </article>
 
