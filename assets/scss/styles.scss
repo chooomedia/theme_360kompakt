@@ -22,7 +22,7 @@ img {
         margin-right: .2rem;
     }
 
-    .reviewed-by {
+    .reviewed-by, .last-mod-date {
         padding-left: .5rem;
         display: flex;
         align-items: center;
@@ -34,7 +34,7 @@ img {
             top: -1px;
         }
 
-        .shield {
+        .shield, .calender {
             padding-right: .2rem;
             svg {
                 display: block;
