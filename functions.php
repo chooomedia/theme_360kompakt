@@ -80,20 +80,23 @@ add_filter( 'get_search_form', 'wpdocs_my_search_form' );
 function show_author_box(){ 
 
     global $post;  
-    $author_id = get_post_field('post_author' , $post->ID); 
+    $author_id = get_post_field('post_author' , $post->ID);
     
+    // Check if is not 404 Page
+    if(!is_404()){
     ?>
-    <div class="author-box">
-            <div class="author-box-avatar">
-                <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
-            </div>
-            <div class="author-box-meta">
-                <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
-                <div class="author-box_bio">
-                    <?php echo get_the_author_meta("description", $author_id); ?>
+        <div class="author-box">
+                <div class="author-box-avatar">
+                    <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
                 </div>
-            </div>
-    <?php 
+                <div class="author-box-meta">
+                    <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
+                    <div class="author-box_bio">
+                        <?php echo get_the_author_meta("description", $author_id); ?>
+                    </div>
+                </div>
+        <?php 
+    }
 }
 add_action('generate_after_content', 'show_author_box');
 
