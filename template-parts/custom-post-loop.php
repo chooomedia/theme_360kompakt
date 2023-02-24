@@ -1,33 +1,21 @@
 <?php 
 
-        $args = array(
-            'cat'      => '224',
-            'posts_per_page' => '3'
-        );
-        
-        $featuredPosts = new WP_Query($args);
-
-        ?> 
-        <article> 
+        ?>
+        <article>
         <?php
 
-        if($featuredPosts->have_posts()){
-
-            while ($featuredPosts->have_posts()) : $featuredPosts->the_post();
-
             /* FEATURED IMAGE */
-            the_post_thumbnail();
+            ?><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a><?php
             /* FEATURED IMAGE END */
+
+            ?><div class="inside-article"><?php
 
             /* POST CATEGORYS */
 			do_shortcode('[categorys]');
             /* POST CATEGORYS END */
 
                 /* POST TITLE */
-				if ( generate_show_title() ) {
-					$params = generate_get_the_title_parameters();
-					the_title( $params['before'], $params['after'] );
-				}
+                echo '<a class="loop-title" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
                 /* POST TITLE END */
                 ?>
 
@@ -56,8 +44,9 @@
                     <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
                 <?php 
                 }
+
+        ?>
+        </div>
+        </article>
+        <?php
                 
-            endwhile;
-            
-        }
-        ?> </article> <?php
