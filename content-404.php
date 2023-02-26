@@ -128,15 +128,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
                 
                 ?>
-                <div class="author-info">
-                    <?php
-                    global $post;  
-                    $author_id = get_post_field('post_author' , $post->ID); 
-					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-					echo '<img alt="' . __("Autorenfoto", "GPCT") . '" title="' . __("Autorenfoto", "GPCT") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "GPCT") . get_author_name($author_id).'</a>';
-
-                    ?>
-                </div>
+			  <?php get_template_part('template-parts/author-info', null,["link"=> true]);?>
+			
+		
 			</header>
 			<?php
 		endif;
@@ -182,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'generate_after_content' );
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >','gpct')?></a></div>
 	</div>
 </article>
 <?php

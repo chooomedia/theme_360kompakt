@@ -26,7 +26,7 @@ get_header(); ?>
 		
 			if(is_author()){
 
-                global $post;  
+             //  global $post;  
                 $author_id = get_post_field('post_author' , $post->ID); 
                 ?>
             

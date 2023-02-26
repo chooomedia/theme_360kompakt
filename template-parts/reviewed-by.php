@@ -1,10 +1,10 @@
 <?php
     $author_id = get_post_field('post_author'); 
-    $author_name = get_author_name( $author_id );
+    $author_name = get_the_author_meta('display_name',$author_id);
 	$author_url = get_author_posts_url( $author_id );
 
     $reviewed_author_id = get_post_meta( $post->ID, 'custom_checked_by_author', true );
-    $reviewed_author_name = get_author_name(  $reviewed_author_id );
+    $reviewed_author_name = get_the_author_meta('display_name',$reviewed_author_id );
     $reviewed_author_url = get_author_posts_url( $reviewed_author_id );
 ?>
 

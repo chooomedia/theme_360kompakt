@@ -34,7 +34,7 @@ global $post;
 				 * @since 0.1
 				 */
 				do_action( 'generate_before_entry_title' );
-                echo '<span class="category-list">'. do_shortcode('[categorys]') .'</span>';
+                echo '<span class="category-list">'. do_shortcode('[categories]') .'</span>';
 
 				if ( generate_show_title() ) {
 					$params = generate_get_the_title_parameters();

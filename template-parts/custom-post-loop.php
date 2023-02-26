@@ -10,25 +10,16 @@
 
             ?><div class="inside-article"><?php
 
-            /* POST CATEGORYS */
-			do_shortcode('[categorys]');
-            /* POST CATEGORYS END */
+            /* POST categories */
+			do_shortcode('[categories]');
+            /* POST categories END */
 
                 /* POST TITLE */
                 echo '<a class="loop-title" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
                 /* POST TITLE END */
                 ?>
+                <?php get_template_part('template-parts/author-info', null,["link"=> true]);?>
 
-                <!-- AUTHOR INFO -->
-                <div class="author-info">
-                    <?php
-                    global $post;  
-                    $author_id = get_post_field('post_author' , $post->ID); 
-					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img alt="' . __("Autorenfoto", "gpct") . '" title="' . __("Autorenfoto", "gpct") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "gpct") . $linkToAuthor . get_author_name($author_id).'</a>';
-                    ?>
-                </div>
-                <!-- AUTHOR INFO END -->
 
                 <?php
 
