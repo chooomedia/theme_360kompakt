@@ -11,10 +11,16 @@ img {
     font-size: $small-text;
     flex-wrap: wrap;
 
+    span{
+        display: flex;
+        align-items: center;
+    }
+
     a {
         text-decoration: none;
         display: flex;
         align-items: center;
+        margin-left: 5px;
     }
             
     img {

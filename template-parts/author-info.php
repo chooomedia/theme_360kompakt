@@ -15,12 +15,15 @@
      <?php if ($link) {
 
         ?>
-         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'gpct'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
-         <?php  } ?>
 
          <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
-
-         <?php echo sprintf( __('%s Von %s', 'gpct'), '<span>', $author_name), '</span>'; ?>
+         
+         <?php echo __('Von ', 'gpct');?>
+         
+         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'gpct'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
+         <?php  } ?>
+         
+         <?php echo $author_name ?>
 
          <?php if ($link) {
                 echo '</a>';
