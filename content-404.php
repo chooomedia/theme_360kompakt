@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         ?>
         
-        <h2><?php _e('Aktuelle Beiträge', 'threek'); ?></h2>
+        <h2><?php _e('Aktuelle Beiträge', 'GPCT'); ?></h2>
 
         <?php
         // Custom Post Loop 
@@ -128,15 +128,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
                 
                 ?>
-                <div class="author-info">
-                    <?php
-                    global $post;  
-                    $author_id = get_post_field('post_author' , $post->ID); 
-					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-					echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . get_author_name($author_id).'</a>';
-
-                    ?>
-                </div>
+			  <?php get_template_part('template-parts/author-info', null,["link"=> true]);?>
+			
+		
 			</header>
 			<?php
 		endif;
@@ -182,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'generate_after_content' );
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >','gpct')?></a></div>
 	</div>
 </article>
 <?php

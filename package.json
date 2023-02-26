@@ -1,6 +1,6 @@
 {
-	"name": "theme_360kmpakt",
-	"description": "theme_360kmpakt Childtheme from generatepress",
+	"name": "theme_gp_childtheme",
+	"description": "Childtheme from generatepress",
 	"scripts": {
 		"dev": "wp-scripts start assets/js/main.js assets/js/slider.js assets/js/backend/backend.js",
 		"build": "wp-scripts build assets/js/main.js assets/js/slider.js assets/js/backend/backend.js"

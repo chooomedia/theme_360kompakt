@@ -26,7 +26,7 @@ get_header(); ?>
 		
 			if(is_author()){
 
-                global $post;  
+             //  global $post;  
                 $author_id = get_post_field('post_author' , $post->ID); 
                 ?>
             
@@ -35,7 +35,7 @@ get_header(); ?>
                         <h1><?php echo '<span>'. get_the_author() . '</span>'; ?></h1>
                     </span>
                     <div class="author-avatar">
-                        <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
+                        <img alt=<?php _e("Autorenfoto", "GPCT"); ?> title=<?php _e("Autorenfoto", "GPCT"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
                     </div>
                     <div class="author-info">
                         <?php echo get_the_author_meta("description", $author_id); ?>

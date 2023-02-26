@@ -37,8 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="archive-single-content">
 			<header <?php generate_do_attr( 'entry-header' ); ?>>
             <?php
-    
-			do_shortcode('[categorys]');
+        echo  show_all_categories_of_post();
+		
             ?>
 				<?php
 				/**
@@ -55,15 +55,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
                 
                 ?>
-                <div class="author-info">
-                    <?php
-                    global $post;  
-                    $author_id = get_post_field('post_author' , $post->ID); 
-					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-					echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
-					
-                    ?>
-                </div>
+				  <?php get_template_part('template-parts/author-info');?>
+				
+				
 			</header>
 			<?php
 		endif;
