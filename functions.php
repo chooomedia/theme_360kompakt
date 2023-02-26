@@ -141,12 +141,28 @@ add_action( 'generate_after_header', function() {
     }
 });
 
+/* Get categories of Post
+Output (string): "Cat1, Cat2"
+*/
+function show_all_categories_of_post(){
+    $post_categories = wp_get_post_categories( get_the_ID(), array( 'fields' => 'names' ) );
+    $names = '';
+	if( $post_categories ){
+        echo '<span class="category-list">'. implode(',',$post_categories) .'</span>';   
+    }   
+}
+
 
 // Recommended posts on post single
 add_action( 'generate_after_content', function() {
 
-    global $post;
     $categories = get_the_category();
+   
+    /*
+    if ( ! $categories ) {
+        return;
+    }
+    */
     $category_id = get_cat_ID($categories[0]->name);
 
     $args = array(

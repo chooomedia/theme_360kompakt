@@ -37,8 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="archive-single-content">
 			<header <?php generate_do_attr( 'entry-header' ); ?>>
             <?php
-    
-			do_shortcode('[categories]');
+        echo  show_all_categories_of_post();
+		
             ?>
 				<?php
 				/**

@@ -11,7 +11,8 @@
             ?><div class="inside-article"><?php
 
             /* POST categories */
-			do_shortcode('[categories]');
+            echo  show_all_categories_of_post();
+	
             /* POST categories END */
 
                 /* POST TITLE */
