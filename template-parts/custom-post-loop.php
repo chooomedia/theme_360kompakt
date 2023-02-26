@@ -25,7 +25,7 @@
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
 					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
+                    echo '<img alt="' . __("Autorenfoto", "gpct") . '" title="' . __("Autorenfoto", "gpct") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "gpct") . $linkToAuthor . get_author_name($author_id).'</a>';
                     ?>
                 </div>
                 <!-- AUTHOR INFO END -->
@@ -41,7 +41,7 @@
                     </div>
                     <!-- EXCERPT END -->
 
-                    <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
+                    <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'gpct'); ?></a></div>
                 <?php 
                 }
 

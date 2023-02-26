@@ -14,8 +14,8 @@ const {
   registerBlockStyle
 } = wp.blocks;
 registerBlockStyle('core/group', {
-  name: 'is-threek-slider',
-  label: __('As Slider', 'threek')
+  name: 'is-gpct-slider',
+  label: __('As Slider', 'gpct')
 });
 
 /***/ })

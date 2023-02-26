@@ -1,6 +1,6 @@
 import 'hammerjs';
 
-const SLIDERCONTAINER = document.querySelector('.is-style-is-threek-slider');
+const SLIDERCONTAINER = document.querySelector('.is-style-is-gpct-slider');
 const SLIDER = SLIDERCONTAINER.querySelector('.wp-block-group__inner-container')
 const SLIDES = SLIDER?.querySelectorAll( 'figure' );
 

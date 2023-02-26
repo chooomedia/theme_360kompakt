@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         ?>
         
-        <h2><?php _e('Aktuelle Beiträge', 'threek'); ?></h2>
+        <h2><?php _e('Aktuelle Beiträge', 'GPCT'); ?></h2>
 
         <?php
         // Custom Post Loop 
@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     global $post;  
                     $author_id = get_post_field('post_author' , $post->ID); 
 					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-					echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . get_author_name($author_id).'</a>';
+					echo '<img alt="' . __("Autorenfoto", "GPCT") . '" title="' . __("Autorenfoto", "GPCT") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "GPCT") . get_author_name($author_id).'</a>';
 
                     ?>
                 </div>
