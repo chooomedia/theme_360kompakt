@@ -1,6 +1,8 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./assets/scss/main.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* Customizer Settings müssen importiert werden (.dat Datei) */
 .sidebar .inside-right-sidebar {
   position: sticky;
   top: 0;
@@ -208,6 +210,11 @@ img {
   }
 }
 
+/* Blog Single Content */
+#primary .entry-content figure {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 960px) {
   .navigation-branding, .main-nav {
     width: 100%;
@@ -282,14 +289,10 @@ body.single-post .author-info {
   border-radius: 3px 0 0 3px;
 }
 .wp-block-search__inside-wrapper button {
-  background: var(--accent-2);
-  color: #272727;
   text-shadow: none;
-  font-size: 0.9rem;
   margin-left: 0px;
   border-radius: 0 3px 3px 0;
   padding: 7px 10px 5px;
-  font-weight: 600;
 }
 
 .site-footer .footer-widgets .inside-footer-widgets hr {
@@ -298,6 +301,17 @@ body.single-post .author-info {
 }
 .site-footer .footer-widgets .widget {
   margin-bottom: 10px;
+}
+.site-footer .footer_headline {
+  color: var(--white);
+  padding-bottom: 5px;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+.site-footer .footer-widgets a {
+  text-decoration: none;
 }
 
 /* Pagination */
@@ -505,6 +519,15 @@ section.recommended {
   section.recommended article img.wp-post-image {
     max-height: 350px !important;
   }
+}
+
+.shariff_headline {
+  text-align: center;
+  font-size: 29px;
+  margin-bottom: 20px;
+  line-height: 1.2em;
+  font-weight: 400;
+  text-transform: none;
 }
 
 /*# sourceMappingURL=main.css.map*/

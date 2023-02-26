@@ -1,3 +1,5 @@
+/* Customizer Settings müssen importiert werden (.dat Datei) */
+
 // Breakpoints
 $mobile-menu-breakpoint: 960px;
 $author-box-breakpoint: 500px;
@@ -8,15 +10,15 @@ $recommended-posts-section-breakpoint: 1050px;
 // Backgrounds
 $author-box-background: linear-gradient(90deg, rgba(30,115,190,1) 0%, rgba(30,115,190,1) 40%, rgba(100,159,246,1) 100%);
 $author-box-fallback-background: rgb(30,115,190);
+$pagination-button-background: var(--accent-2);
 
 // Text Colors
 $category-name-color: #8E9BAA;
-$search-bar-button-text-color: #272727;
 
 // Text Sizes
 $small-text: .75rem;
 $archive-h2-text: 1.4rem;
 $archive-excerpt-text: 1rem;
-$author-name-text: 1.3rem;
-$author-info-text: 1rem;
-$button-text: 0.9rem;
+$author-name-text: 1.3rem; // Author Box Name @ Post Single
+$author-info-text: 1rem; // Author Box Bio @ Post Single
+$pagination-text: 0.9rem;
