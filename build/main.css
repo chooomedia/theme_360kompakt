@@ -1,5 +1,5 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./assets/scss/main.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./assets/scss/main.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /* Customizer Settings müssen importiert werden (.dat Datei) */
@@ -120,10 +120,15 @@ img {
   font-size: 0.75rem;
   flex-wrap: wrap;
 }
+.author-info span {
+  display: flex;
+  align-items: center;
+}
 .author-info a {
   text-decoration: none;
   display: flex;
   align-items: center;
+  margin-left: 5px;
 }
 .author-info img {
   width: 26px;
