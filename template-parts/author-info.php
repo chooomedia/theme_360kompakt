@@ -20,7 +20,7 @@
 
          <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
 
-         <?php echo sprintf(__('Von %s', 'gpct'), $author_name) ?>
+         <?php echo sprintf( __('%s Von %s', 'gpct'), '<span>', $author_name), '</span>'; ?>
 
          <?php if ($link) {
                 echo '</a>';
