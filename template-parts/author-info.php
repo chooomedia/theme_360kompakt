@@ -16,11 +16,11 @@
 
         ?>
 
-         <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
+         <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
          
-         <?php echo __('Von ', 'gpct');?>
+         <?php echo __('Von ', 'kompakt');?>
          
-         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'gpct'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
+         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'kompakt'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
          <?php  } ?>
          
          <?php echo $author_name ?>

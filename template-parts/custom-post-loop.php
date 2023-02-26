@@ -33,7 +33,7 @@
                     </div>
                     <!-- EXCERPT END -->
 
-                    <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'gpct'); ?></a></div>
+                    <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'kompakt'); ?></a></div>
                 <?php 
                 }
 

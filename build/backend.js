@@ -14,8 +14,8 @@ const {
   registerBlockStyle
 } = wp.blocks;
 registerBlockStyle('core/group', {
-  name: 'is-gpct-slider',
-  label: __('As Slider', 'gpct')
+  name: 'is-kompakt-slider',
+  label: __('As Slider', 'kompakt')
 });
 
 /***/ })

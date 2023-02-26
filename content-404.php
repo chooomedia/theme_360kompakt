@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         ?>
         
-        <h2><?php _e('Aktuelle Beiträge', 'GPCT'); ?></h2>
+        <h2><?php _e('Aktuelle Beiträge', 'KOMPAKT'); ?></h2>
 
         <?php
         // Custom Post Loop 
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'generate_after_content' );
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >','gpct')?></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >','kompakt')?></a></div>
 	</div>
 </article>
 <?php

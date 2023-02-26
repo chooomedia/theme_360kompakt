@@ -6,26 +6,26 @@
  * Only edit this file if you have direct access to it on your server (to fix errors if they happen).
  */
 /* 
-GPCT ==  GeneratePress Child Theme
+KOMPAKT ==  360Kompakt
 */
 
-define( 'GPCT_THEME_URL', get_stylesheet_directory_uri() );
-define( 'GPCT_THEME_PATH', get_stylesheet_directory() );
-define( 'GPCT_VERSION', '1.0.0' );
+define( 'KOMPAKT_THEME_URL', get_stylesheet_directory_uri() );
+define( 'KOMPAKT_THEME_PATH', get_stylesheet_directory() );
+define( 'KOMPAKT_VERSION', '1.0.0' );
 
-function gpct_enqueue_child_theme_styles() {
+function kompakt_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'gpct-style', GPCT_THEME_URL . '/build/main.css', ['parent-style'], filemtime( GPCT_THEME_PATH . '/build/main.css' ) );
-    wp_enqueue_script( 'gpct-slider', GPCT_THEME_URL . '/build/slider.js', [], filemtime( GPCT_THEME_PATH . '/build/slider.js' ), true );
+    wp_enqueue_style( 'kompakt-style', KOMPAKT_THEME_URL . '/build/main.css', ['parent-style'], filemtime( KOMPAKT_THEME_PATH . '/build/main.css' ) );
+    wp_enqueue_script( 'kompakt-slider', KOMPAKT_THEME_URL . '/build/slider.js', [], filemtime( KOMPAKT_THEME_PATH . '/build/slider.js' ), true );
 }
-add_action( 'wp_enqueue_scripts', 'gpct_enqueue_child_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'kompakt_enqueue_child_theme_styles' );
 
 function backend_assets() {
 	wp_enqueue_script( 
-        'gpct-be-js', 
-        GPCT_THEME_URL . '/build/backend.js', 
+        'kompakt-be-js', 
+        KOMPAKT_THEME_URL . '/build/backend.js', 
         ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill'], 
-        filemtime( GPCT_THEME_PATH . '/build/backend.js' ), 
+        filemtime( KOMPAKT_THEME_PATH . '/build/backend.js' ), 
         true 
     );
 }
@@ -36,27 +36,27 @@ add_image_size( 'widget-slider-450', 450, 263, true );
 
 function add_custom_sizes_to_gutenberg( $sizes ) {
   return array_merge( $sizes, [
-    'widget-slider-770' => __('Slider 770', 'gpct'),
-    'widget-slider-450' => __('Slider 450', 'gpct'),
+    'widget-slider-770' => __('Slider 770', 'kompakt'),
+    'widget-slider-450' => __('Slider 450', 'kompakt'),
   ] );
 }
 add_filter( 'image_size_names_choose', 'add_custom_sizes_to_gutenberg' );
 
 
 // includes
-require_once GPCT_THEME_PATH . '/classes/CheckedBy.php';
+require_once KOMPAKT_THEME_PATH . '/classes/CheckedBy.php';
 add_action( 'init', function() {
     new \Threek\CheckedBy;
 } );
 
-require_once GPCT_THEME_PATH . '/shortcodes.php';
+require_once KOMPAKT_THEME_PATH . '/shortcodes.php';
 
 
 // Change 404 Page Title
 add_filter( 'generate_404_title','generate_custom_404_title' );
 function generate_custom_404_title()
 {
-      return __('<center>Nichts gefunden</center>', 'gpct');
+      return __('<center>Nichts gefunden</center>', 'kompakt');
 }
 
 
@@ -64,7 +64,7 @@ function generate_custom_404_title()
 add_filter( 'generate_404_text','generate_custom_404_text' );
 function generate_custom_404_text()
 {
-      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'gpct');
+      return __('<center>Haben Sie sich verirrt? Nutzen Sie unsere Suche oder klicken Sie auf einen unserer neuesten Beiträge.</center>', 'kompakt');
 }
 
 
@@ -88,7 +88,7 @@ function show_author_box(){
     ?>
 <div class="author-box">
     <div class="author-box-avatar">
-        <img alt=<?php _e("Autorenfoto", "gpct"); ?> title=<?php _e("Autorenfoto", "gpct"); ?>
+        <img alt=<?php _e("Autorenfoto", "kompakt"); ?> title=<?php _e("Autorenfoto", "kompakt"); ?>
             src=<?php echo get_avatar_url($author_id); ?> />
     </div>
     <div class="author-box-meta">
@@ -110,7 +110,7 @@ add_action( 'generate_before_main_content', function() {
 	?>
     <div class="home-headline">
         <div class="wp-block-group__inner-container">
-            <h2><?php _e('Aktuelle Beiträge', 'gpct'); ?></h2>
+            <h2><?php _e('Aktuelle Beiträge', 'kompakt'); ?></h2>
         </div>
     </div>
     <?php
@@ -175,7 +175,7 @@ add_action( 'generate_after_content', function() {
     ?>
 
     <h3 class="recommended-headline">
-        <?php _e('Weitere Beiträge dieser Kategorie', 'gpct'); ?>
+        <?php _e('Weitere Beiträge dieser Kategorie', 'kompakt'); ?>
     </h3>
 
     <section class="posts-list recommended">
