@@ -146,7 +146,7 @@ Output (string): "Cat1, Cat2"
 */
 function show_all_categories_of_post(){
     $post_categories = wp_get_post_categories( get_the_ID(), array( 'fields' => 'names' ) );
-    $names = '';
+   
 	if( $post_categories ){
         echo '<span class="category-list">'. implode(',',$post_categories) .'</span>';   
     }   
@@ -158,11 +158,11 @@ add_action( 'generate_after_content', function() {
 
     $categories = get_the_category();
    
-    /*
+ 
     if ( ! $categories ) {
         return;
     }
-    */
+  
     $category_id = get_cat_ID($categories[0]->name);
 
     $args = array(
@@ -171,7 +171,7 @@ add_action( 'generate_after_content', function() {
     );
 
     $featuredPosts = new WP_Query($args);
-
+    if($featuredPosts->have_posts() && is_single()){
     ?>
 
     <h3 class="recommended-headline">
@@ -181,7 +181,7 @@ add_action( 'generate_after_content', function() {
     <section class="posts-list recommended">
         <?php
 
-        if($featuredPosts->have_posts() && is_single()){
+
 
             while ($featuredPosts->have_posts()) : $featuredPosts->the_post();
 
@@ -189,7 +189,8 @@ add_action( 'generate_after_content', function() {
             
             endwhile;
             
-        }
+  
     ?>
     </section> <?php
+          }
  }, 20);
