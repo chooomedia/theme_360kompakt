@@ -85,24 +85,39 @@ function show_author_box(){
     // Check if is not 404 Page
     if(!is_404()){
     ?>
-        <div class="author-box">
-                <div class="author-box-avatar">
-                    <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?> src=<?php echo get_avatar_url($author_id); ?>/>
-                </div>
-                <div class="author-box-meta">
-                    <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
-                    <div class="author-box_bio">
-                        <?php echo get_the_author_meta("description", $author_id); ?>
-                    </div>
-                </div>
-        <?php 
+<div class="author-box">
+    <div class="author-box-avatar">
+        <img alt=<?php _e("Autorenfoto", "threek"); ?> title=<?php _e("Autorenfoto", "threek"); ?>
+            src=<?php echo get_avatar_url($author_id); ?> />
+    </div>
+    <div class="author-box-meta">
+        <div class="author-box_name"><?php echo '<span>'. get_the_author() . '</span>'; ?></div>
+        <div class="author-box_bio">
+            <?php echo get_the_author_meta("description", $author_id); ?>
+        </div>
+    </div>
+    </div>
+    <?php 
     }
 }
-add_action('generate_after_content', 'show_author_box');
 
+add_action('generate_after_content', 'show_author_box', 10);
 
-// 3 featured posts on home page
-function show_featured_posts(){ 
+// Headline on home page 
+add_action( 'generate_before_main_content', function() {
+	if ( is_front_page() && is_home() ) {
+	?>
+    <div class="home-headline">
+        <div class="wp-block-group__inner-container">
+            <h2><?php _e('Aktuelle Beiträge', 'threek'); ?></h2>
+        </div>
+    </div>
+    <?php
+	}
+} );
+
+// Featured posts on home page
+add_action( 'generate_after_header', function() {
     if ( is_front_page() && is_home() ) {
 
         $args = array(
@@ -112,92 +127,52 @@ function show_featured_posts(){
         
         $featuredPosts = new WP_Query($args);
 
-        ?> <section class="featured-posts"> <?php
+        ?> <section class="posts-list featured"> <?php
 
         if($featuredPosts->have_posts()){
         while ($featuredPosts->have_posts()) : $featuredPosts->the_post();
-        ?>
-        <!-- Loop Content ############################################## -->
-        
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata( 'article' ); ?>>
-	    <div class="inside-article">
-		<?php
-
-		if ( generate_show_entry_header() ) : ?>
-
-		<div class="archive-single-featured-image">
-        <?php
-            do_action( 'generate_after_entry_header' ); ?>
-        </div>
-        <div class="archive-single-content">
-			<header <?php generate_do_attr( 'entry-header' ); ?>>
-            <?php
-    
-			do_shortcode('[categorys]');
-
-				if ( generate_show_title() ) {
-					$params = generate_get_the_title_parameters();
-
-					the_title( $params['before'], $params['after'] );
-				}
-                
-                ?>
-                <div class="author-info">
-                    <?php
-                    global $post;  
-                    $author_id = get_post_field('post_author' , $post->ID); 
-					if(!is_archive()) {$linkToAuthor = '&nbsp;<a href="'.get_author_posts_url($author_id).'">';}
-                    echo '<img alt="' . __("Autorenfoto", "threek") . '" title="' . __("Autorenfoto", "threek") . '" src="'.get_avatar_url($author_id).'"/> ' . __("Von ", "threek") . $linkToAuthor . get_author_name($author_id).'</a>';
-
-                    ?>
-                </div>
-			</header>
-			<?php
-		endif;
-
-		if ( generate_show_excerpt() ) :
-			?>
-
-			<div class="entry-summary">
-				<?php the_excerpt() ?>
-			</div>
-
-		<?php else : ?>
-
-			<div class="entry-content">
-				<?php
-				the_content();
-				?>
-			</div>
-        </div>
-			<?php
-		endif;
-
-		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('Weiterlesen >', 'threek'); ?></a></div>
-	</div>
-</article>
-
-        <!-- Loop Content - End ############################################### -->
-        <?php
+            get_template_part('template-parts/custom-post-loop');
         endwhile;
         }
 
-        ?> </section> <?php
+        ?>
+    </section> <?php
     }
-    
-}
-add_action('generate_after_header', 'show_featured_posts');
+});
 
 
-add_action( 'generate_before_main_content', function() {
-	if ( is_front_page() && is_home() ) {
-	?>
-	<div class="home-headline">
-		<div class="wp-block-group__inner-container">
-			<h2><?php _e('Aktuelle Beiträge', 'threek'); ?></h2>
-		</div>
-	</div>
-	<?php
-	}
-} );
+// Recommended posts on post single
+add_action( 'generate_after_content', function() {
+
+    global $post;
+    $categories = get_the_category();
+    $category_id = get_cat_ID($categories[0]->name);
+
+    $args = array(
+        'cat'      => $category_id,
+        'posts_per_page' => '3'
+    );
+
+    $featuredPosts = new WP_Query($args);
+
+    ?>
+
+    <h3 class="recommended-headline">
+        <?php _e('Weitere Beiträge dieser Kategorie', 'threek'); ?>
+    </h3>
+
+    <section class="posts-list recommended">
+        <?php
+
+        if($featuredPosts->have_posts() && is_single()){
+
+            while ($featuredPosts->have_posts()) : $featuredPosts->the_post();
+
+                get_template_part('template-parts/custom-post-loop');
+            
+            endwhile;
+            
+        }
+    ?>
+    </section> <?php
+ }, 20);
