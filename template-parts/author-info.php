@@ -18,7 +18,7 @@
 
          <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
 
-         <?php echo __('Von ', 'kompakt');?>
+         <?php echo __('Von', 'kompakt');?>
 
          <?php if ($link) {?>
 
