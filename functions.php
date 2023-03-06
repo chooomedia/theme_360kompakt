@@ -82,7 +82,6 @@ function show_author_box(){
 
     global $post;  
     $author_id = get_post_field('post_author' , $post->ID);
-    var_dump(is_single());
     
     // Check if is not 404 Page
     if(!is_404() && is_single()){
