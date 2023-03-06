@@ -118,29 +118,6 @@ add_action( 'generate_before_main_content', function() {
 } );
 
 // Featured posts on home page
-/*add_action( 'generate_after_header', function() {
-    if ( is_front_page() && is_home() ) {
-
-        $args = array(
-            'cat'      => '224',
-            'posts_per_page' => '3'
-        );
-        
-        $featuredPosts = new WP_Query($args);
-
-        ?> <section class="posts-list featured"> <?php
-
-        if($featuredPosts->have_posts()){
-        while ($featuredPosts->have_posts()) : $featuredPosts->the_post();
-            get_template_part('template-parts/custom-post-loop');
-        endwhile;
-        }
-
-        ?>
-    </section> <?php
-    }
-}); 
-*/
 add_action( 'generate_after_header', function() {
     if ( is_front_page() && is_home() ) {
 
