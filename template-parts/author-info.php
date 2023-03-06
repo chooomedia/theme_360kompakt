@@ -12,21 +12,22 @@
     $author_name = get_the_author_meta('display_name', $author_id);
     ?>
  <div class="author-info">
-     <?php if ($link) {
+    
 
-        ?>
+         <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
+        <span>
+            <?php echo __('Von ', 'kompakt');?>
 
-         <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'gpct'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
-         
-         <?php echo __('Von ', 'gpct');?>
-         
-         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'gpct'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
-         <?php  } ?>
-         
-         <?php echo $author_name ?>
+            <?php if ($link) { ?>
 
-         <?php if ($link) {
-                echo '</a>';
-            }
-            ?>
+            <a title="<?php echo sprintf(__('Autorenprofil von %s', 'kompakt'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
+            <?php  } ?>
+            
+            <?php echo " " . $author_name ?>
+
+            <?php if ($link) {
+                    echo '</a>';
+                }
+    ?>
+        </span>
  </div>
