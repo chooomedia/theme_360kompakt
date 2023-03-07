@@ -17,7 +17,7 @@
     <span>
         <?php
         echo sprintf(
-            __('Von %s %s %s', 'gpct'),
+            __('Von %s %s %s', 'kompakt'),
             ( empty( is_archive() ) ? '<a href="' . $author_url . '" title="' . $author_name . '">' : '' ),
             $author_name,
             ( empty( is_archive() ) ? '</a>' : '' )
@@ -35,7 +35,7 @@
             <span>
                 <?php
                 echo sprintf( 
-                    __('Überprüft durch %s %s %s', 'gpct'), 
+                    __('Überprüft durch %s %s %s', 'kompakt'), 
                     '<a href="' . $reviewed_author_url . '" title="' . $reviewed_author_name . '">',
                     $reviewed_author_name,
                     '</a>'
@@ -53,7 +53,7 @@
                         <span class="calender">
                             ' . $calender . '
                         </span>
-                        <span>' . __('Zuletzt bearbeitet am: ', 'gpct') . '<time>' . get_the_modified_date() . '</time></span>
+                        <span>' . __('Zuletzt bearbeitet am: ', 'kompakt') . '<time>' . get_the_modified_date() . '</time></span>
                     </div>';  
             ?>
 
