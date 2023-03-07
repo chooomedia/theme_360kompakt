@@ -6,9 +6,9 @@
  * Only edit this file if you have direct access to it on your server (to fix errors if they happen).
  */
 /* 
-KOMPAKT ==  GeneratePress Child Theme
 
-kompakt
+KOMPAKT ==  360Kompakt
+
 */
 
 define( 'KOMPAKT_THEME_URL', get_stylesheet_directory_uri() );
@@ -26,7 +26,9 @@ function backend_assets() {
 	wp_enqueue_script( 
         'kompakt-be-js', 
         KOMPAKT_THEME_URL . '/build/backend.js', 
+
         ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill','media-upload', 'thickbox'], 
+
         filemtime( KOMPAKT_THEME_PATH . '/build/backend.js' ), 
         true 
     );
@@ -110,9 +112,11 @@ add_action('generate_after_content', 'show_author_box', 10);
 add_action( 'generate_before_main_content', function() {
 	if ( is_front_page() && is_home() ) {
 	?>
+
 <div class="home-headline">
     <div class="wp-block-group__inner-container">
         <h2><?php _e('Aktuelle Beiträge', 'kompakt'); ?></h2>
+
     </div>
 </div>
 <?php
@@ -241,9 +245,11 @@ add_action( 'generate_after_content', function() {
     if($featuredPosts->have_posts() && is_single()){
     ?>
 
-<h3 class="recommended-headline">
-    <?php _e('Weitere Beiträge dieser Kategorie', 'kompakt'); ?>
-</h3>
+
+    <h3 class="recommended-headline">
+        <?php _e('Weitere Beiträge dieser Kategorie', 'kompakt'); ?>
+    </h3>
+
 
 <section class="posts-list recommended">
     <?php
