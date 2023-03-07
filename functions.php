@@ -7,6 +7,8 @@
  */
 /* 
 KOMPAKT ==  GeneratePress Child Theme
+
+kompakt
 */
 
 define( 'KOMPAKT_THEME_URL', get_stylesheet_directory_uri() );
@@ -24,7 +26,7 @@ function backend_assets() {
 	wp_enqueue_script( 
         'kompakt-be-js', 
         KOMPAKT_THEME_URL . '/build/backend.js', 
-        ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill'], 
+        ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill','media-upload', 'thickbox'], 
         filemtime( KOMPAKT_THEME_PATH . '/build/backend.js' ), 
         true 
     );
@@ -97,8 +99,8 @@ function show_author_box(){
             <?php echo get_the_author_meta("description", $author_id); ?>
         </div>
     </div>
-    </div>
-    <?php 
+</div>
+<?php 
     }
 }
 
@@ -108,12 +110,12 @@ add_action('generate_after_content', 'show_author_box', 10);
 add_action( 'generate_before_main_content', function() {
 	if ( is_front_page() && is_home() ) {
 	?>
-    <div class="home-headline">
-        <div class="wp-block-group__inner-container">
-            <h2><?php _e('Aktuelle Beiträge', 'kompakt'); ?></h2>
-        </div>
+<div class="home-headline">
+    <div class="wp-block-group__inner-container">
+        <h2><?php _e('Aktuelle Beiträge', 'kompakt'); ?></h2>
     </div>
-    <?php
+</div>
+<?php
 	}
 } );
 
@@ -142,7 +144,7 @@ add_action( 'generate_after_header', function() {
             }
 
         ?>
-    </section> <?php
+</section> <?php
     }
 }
 });
@@ -159,6 +161,64 @@ function show_all_categories_of_post(){
     }   
 }
 
+
+
+
+/**
+*
+* Add custom user profile information
+*
+*/
+// Add custom user meta fields
+function add_custom_user_profile_fields($user) {
+    ?>
+<h3><?php _e('Profile Picture', 'kompakt'); ?></h3>
+<table class="form-table">
+    <tr>
+        <th><label for="profile_picture"><?php _e('Please upload your profile picture.', 'kompakt'); ?></label></th>
+        <td>
+
+            <?php
+                $profile_picture = get_the_author_meta('profile_picture', $user->ID);
+                if (!empty($profile_picture)) {
+               
+                    echo '<img src="' . esc_url($profile_picture) . '" width="100" /><br />';
+                }
+                ?>
+            <input type="text" style="display:none;" name="profile_picture" id="profile_picture"
+                value="<?php echo esc_attr($profile_picture); ?>" class="regular-text" /><br />
+            <input type="button" class="button" value="<?php _e('Upload Image', 'kompakt'); ?>"
+                id="upload_profile_picture_button" />
+
+        </td>
+    </tr>
+</table>
+<?php
+}
+add_action('show_user_profile', 'add_custom_user_profile_fields');
+add_action('edit_user_profile', 'add_custom_user_profile_fields');
+
+
+// Save custom user meta fields
+function save_custom_user_profile_fields($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+    update_user_meta($user_id, 'profile_picture', $_POST['profile_picture']);
+}
+add_action('personal_options_update', 'save_custom_user_profile_fields');
+add_action('edit_user_profile_update', 'save_custom_user_profile_fields');
+
+function modify_get_avatar_url_defaults($url, $id) { 
+
+    if(get_the_author_meta('profile_picture', $id)){
+     return get_the_author_meta('profile_picture', $id);   
+    }
+  
+    return $url; 
+}
+// add the filter
+add_filter( "get_avatar_url", "modify_get_avatar_url_defaults", 10, 3 );
 
 // Recommended posts on post single
 add_action( 'generate_after_content', function() {
@@ -181,12 +241,12 @@ add_action( 'generate_after_content', function() {
     if($featuredPosts->have_posts() && is_single()){
     ?>
 
-    <h3 class="recommended-headline">
-        <?php _e('Weitere Beiträge dieser Kategorie', 'kompakt'); ?>
-    </h3>
+<h3 class="recommended-headline">
+    <?php _e('Weitere Beiträge dieser Kategorie', 'kompakt'); ?>
+</h3>
 
-    <section class="posts-list recommended">
-        <?php
+<section class="posts-list recommended">
+    <?php
 
 
 
@@ -198,6 +258,6 @@ add_action( 'generate_after_content', function() {
             
   
     ?>
-    </section> <?php
+</section> <?php
           }
  }, 20);

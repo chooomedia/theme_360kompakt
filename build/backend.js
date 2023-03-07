@@ -1,6 +1,47 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./assets/js/backend/profil/profile-image.js":
+/*!***************************************************!*\
+  !*** ./assets/js/backend/profil/profile-image.js ***!
+  \***************************************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var mediaUploader;
+  var uploadButton = document.querySelector('#upload_profile_picture_button');
+  var profilePictureInput = document.querySelector('#profile_picture');
+  uploadButton.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // If the uploader object has already been created, reopen the dialog
+    if (mediaUploader) {
+      mediaUploader.open();
+      return;
+    }
+
+    // Create the media uploader object
+    mediaUploader = wp.media.frames.file_frame = wp.media({
+      title: 'Upload Profile Picture',
+      button: {
+        text: 'Upload Picture'
+      },
+      multiple: false
+    });
+
+    // When a file is selected, grab the URL and set it as the text field's value
+    mediaUploader.on('select', function () {
+      var attachment = mediaUploader.state().get('selection').first().toJSON();
+      profilePictureInput.value = attachment.url;
+    });
+
+    // Open the uploader dialog
+    mediaUploader.open();
+  });
+});
+
+/***/ }),
+
 /***/ "./assets/js/backend/widgets/widgets.js":
 /*!**********************************************!*\
   !*** ./assets/js/backend/widgets/widgets.js ***!
@@ -98,6 +139,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _widgets_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./widgets/widgets */ "./assets/js/backend/widgets/widgets.js");
 /* harmony import */ var _widgets_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_widgets_widgets__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _profil_profile_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profil/profile-image */ "./assets/js/backend/profil/profile-image.js");
+/* harmony import */ var _profil_profile_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_profil_profile_image__WEBPACK_IMPORTED_MODULE_1__);
+
 
 }();
 /******/ })()
