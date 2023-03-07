@@ -104,6 +104,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		//do_action( 'generate_after_content' );
 		
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e("Weiterlesen >", "kompakt") ?></a></div>
 	</div>
 </article>

@@ -121,14 +121,10 @@ img {
   flex-wrap: wrap;
 }
 .author-info span {
-  display: flex;
-  align-items: center;
+  display: inline-block;
 }
 .author-info a {
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
 }
 .author-info img {
   width: 26px;
