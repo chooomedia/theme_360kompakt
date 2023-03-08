@@ -175,6 +175,7 @@ function show_all_categories_of_post(){
 */
 // Add custom user meta fields
 function add_custom_user_profile_fields($user) {
+	wp_enqueue_media();
     ?>
 <h3><?php _e('Profile Picture', 'kompakt'); ?></h3>
 <table class="form-table">
