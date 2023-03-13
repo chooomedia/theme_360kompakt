@@ -1,11 +1,14 @@
 import 'hammerjs';
 
 const SLIDERCONTAINER = document.querySelector('.is-style-is-kompakt-slider');
-const SLIDER = SLIDERCONTAINER.querySelector('.wp-block-group__inner-container');
-const SLIDES = SLIDER?.querySelectorAll( 'figure' );
+if (SLIDERCONTAINER) {
+    const SLIDER = SLIDERCONTAINER.querySelector('.wp-block-group__inner-container');
+    const SLIDES = SLIDER?.querySelectorAll('figure');
+}
 
 
-if( SLIDER ) {
+
+if (SLIDER && SLIDERCONTAINER) {
     const HAMMER = new Hammer(SLIDER);
     const SLIDERSIZE = 100;
     const SENSITIVITY = 2;
@@ -16,10 +19,10 @@ if( SLIDER ) {
     const NAVI = true;
     // Automatic Slider after x ms: false | int milliseconds
     const AUTO = 8000;
- 
-    if( ANIMATION === 'slide' ) {
+
+    if (ANIMATION === 'slide') {
         SLIDER.style.width = `${SLIDES.length * 100}%`;
-    } else if( ANIMATION === 'fade' ) {
+    } else if (ANIMATION === 'fade') {
         SLIDER.classList.add('fade')
     } else {
 
@@ -34,20 +37,20 @@ if( SLIDER ) {
         panIsRunning = true;
         const panDistance = (SLIDERSIZE / SLIDES.length) * $event.deltaX / SLIDER.clientWidth;
         const panDistanceCalculated = panDistance - SLIDERSIZE / SLIDES.length * activeIndex;
-        animateSlider( panDistanceCalculated );
-        if ( $event.isFinal ) {
+        animateSlider(panDistanceCalculated);
+        if ($event.isFinal) {
             if (panDistance <= -(SENSITIVITY / SLIDES.length)) {
-                goToSlide( activeIndex + 1 );
+                goToSlide(activeIndex + 1);
             } else if (panDistance >= (SENSITIVITY / SLIDES.length)) {
                 goToSlide(activeIndex - 1);
             } else {
-                goToSlide( activeIndex );
+                goToSlide(activeIndex);
             }
         }
     });
 
     const generateBullets = (elements, target) => {
-        if( NAVI ) {
+        if (NAVI) {
             const newNavigation = document.createElement('div');
             newNavigation.classList.add('custom-slider-navigation');
             elements.forEach((bullet, index) => {
@@ -65,12 +68,12 @@ if( SLIDER ) {
             });
         }
     }
-    
+
     const bulletClick = ($event) => {
         activeIndex = Number($event.target.dataset.active);
         goToSlide(activeIndex);
     }
-    
+
     const setActiveBullet = () => {
         const activeBullet = document.querySelector('.bullet-active');
         if (activeBullet) {
@@ -82,7 +85,7 @@ if( SLIDER ) {
             }
         });
     }
-    
+
     const goToSlide = (index) => {
         if (index < 0) {
             activeIndex = 0;
@@ -93,14 +96,14 @@ if( SLIDER ) {
             activeIndex = index;
         }
         SLIDER.classList.add('is-animating');
-        const percentage = -(SLIDERSIZE/SLIDES.length) * activeIndex;
-        animateSlider( percentage );
+        const percentage = -(SLIDERSIZE / SLIDES.length) * activeIndex;
+        animateSlider(percentage);
         setActiveBullet();
-        setActiveSlide( activeIndex );
-        setTimeOut( activeIndex );
+        setActiveSlide(activeIndex);
+        setTimeOut(activeIndex);
         addSmoothTransition();
     }
-    
+
     const addSmoothTransition = () => {
         clearTimeout(timer);
         timer = setTimeout(() => {
@@ -108,23 +111,23 @@ if( SLIDER ) {
             panIsRunning = false;
         }, 400);
     }
-    
-    const animateSlider = ( percentage ) => {
-        if( ANIMATION === 'slide' ) {
+
+    const animateSlider = (percentage) => {
+        if (ANIMATION === 'slide') {
             const distance = (SLIDERSIZE / SLIDES.length) * (SLIDES.length - 1);
-            if(percentage > 0) {
+            if (percentage > 0) {
                 percentage = 0;
             } else if (percentage < -distance) {
                 percentage = -distance;
             }
             SLIDER.style.transform = 'translateX( ' + percentage + '% )';
-        } else if( ANIMATION === 'fade' ) {
+        } else if (ANIMATION === 'fade') {
 
         } else {
 
         }
     }
-    
+
     const setActiveSlide = (index) => {
         const ELEMENT = document.querySelector('.active');
         if (ELEMENT) {
@@ -133,17 +136,17 @@ if( SLIDER ) {
         SLIDES[index].classList.add('active');
     }
 
-    const setTimeOut = ( activeIndex ) => {
-        if( AUTO ) {
-            clearTimeout( sliderTimer );
-            sliderTimer = setTimeout( () => {
-                goToSlide( activeIndex+1 )
+    const setTimeOut = (activeIndex) => {
+        if (AUTO) {
+            clearTimeout(sliderTimer);
+            sliderTimer = setTimeout(() => {
+                goToSlide(activeIndex + 1)
             }, AUTO);
         }
     }
-    
-    setTimeOut( activeIndex );
-    setActiveSlide( activeIndex );
-    generateBullets( SLIDES, SLIDERCONTAINER );
+
+    setTimeOut(activeIndex);
+    setActiveSlide(activeIndex);
+    generateBullets(SLIDES, SLIDERCONTAINER);
 
 } 
