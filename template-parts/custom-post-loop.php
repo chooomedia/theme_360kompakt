@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* GET post title show in <a> element attributes- */ 
 $post_title = get_the_title();
         ?>
