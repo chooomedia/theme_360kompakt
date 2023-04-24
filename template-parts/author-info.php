@@ -17,16 +17,16 @@
 
 
          <img alt="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" title="<?php echo sprintf(__('Autorenfoto von %s', 'kompakt'), $author_name) ?>" src="<?php echo get_avatar_url($author_id) ?>" />
+        <span>
+            <?php echo __('Von ', 'kompakt');?>
 
-         <?php echo __('Von', 'kompakt');?>
-
-         <?php if ($link) {?>
-
-         <a title="<?php echo sprintf(__('Autorenprofil von %s', 'kompakt'), $author_name) ?>" href="<?php echo get_author_posts_url($author_id) ?> ">
-         <?php echo $author_name ?>
-         <?php echo '</a>' ?>
-
-         <?php  } else { ?>
+            <?php if (is_home() || is_archive()) {
+                    echo $author_name;
+                } else {
+                    echo '<a title="' . sprintf(__('Autorenprofil von %s', 'kompakt'), $author_name) . '" href="' . get_author_posts_url($author_id) . '">' . $author_name . '</a>'; // Zeige den Autor-Namen als Link an
+                }
+            ?>
+        </span>
          
          <?php echo $author_name;
          } ?>
