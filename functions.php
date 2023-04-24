@@ -25,7 +25,7 @@ function backend_assets() {
 	wp_enqueue_script( 
         'kompakt-be-js', 
         KOMPAKT_THEME_URL . '/build/backend.js', 
-        ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill','media-upload', 'thickbox'],, 
+        ['wp-block-editor', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-api', 'wp-polyfill','media-upload', 'thickbox'],
         filemtime( KOMPAKT_THEME_PATH . '/build/backend.js' ), 
         true 
     );

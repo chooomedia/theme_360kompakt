@@ -2731,6 +2731,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_0__);
 
 const SLIDERCONTAINER = document.querySelector('.is-style-is-kompakt-slider');
+if (SLIDERCONTAINER) {
 const SLIDER = SLIDERCONTAINER.querySelector('.wp-block-group__inner-container');
 const SLIDES = SLIDER?.querySelectorAll('figure');
 if (SLIDER) {
@@ -2855,6 +2856,7 @@ if (SLIDER) {
   setTimeOut(activeIndex);
   setActiveSlide(activeIndex);
   generateBullets(SLIDES, SLIDERCONTAINER);
+}
 }
 }();
 /******/ })()

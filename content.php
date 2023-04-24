@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata( 'article' ); ?>>
 	<div class="inside-article">
 		<?php
@@ -104,6 +105,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		//do_action( 'generate_after_content' );
 		
 		?>
-        <div class="read-more"><a href="<?php the_permalink(); ?>">Weiterlesen ></a></div>
+        <div class="read-more"><a href="<?php the_permalink(); ?>" title="Weiterlesen"><?php _e("Weiterlesen >", "kompakt") ?></a></div>
 	</div>
 </article>
