@@ -153,7 +153,7 @@ function target_main_category_query_with_conditional_tags( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
 		if ( is_home() ) {
             $sticky = get_option('sticky_posts');
-			$query->set( 'post__not_in', $sticky);
+			$query->set('post__not_in', $sticky);
 		}
 	}
 }
@@ -238,10 +238,13 @@ add_action( 'generate_after_content', function() {
     }
   
     $category_id = get_cat_ID($categories[0]->name);
+    $single_post_id = get_the_ID();
 
     $args = array(
         'cat'      => $category_id,
-        'posts_per_page' => '3'
+        'posts_per_page' => '3',
+        'post__not_in' => array($single_post_id),
+        
     );
 
     $featuredPosts = new WP_Query($args);

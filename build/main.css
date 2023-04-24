@@ -365,8 +365,9 @@ body.single-post article .inside-article .featured-image {
   margin-bottom: 25px !important;
 }
 body.single-post article .inside-article .entry-content p > a,
+body.single-post article .inside-article .entry-content ul > li,
 body.single-post article .inside-article .entry-content .lwptoc_item {
-  line-height: 2;
+  margin-bottom: 0.7rem;
 }
 
 /* Add ".." after excerpt */
@@ -420,6 +421,7 @@ body.author .author_bio_section .author-info {
   letter-spacing: 0.82px;
   color: #8E9BAA;
   margin-bottom: 15px;
+  background: #51596C;
   display: block;
 }
 

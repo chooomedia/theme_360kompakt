@@ -11,7 +11,7 @@
 <div class="author-info">
 
     <span>
-        <img src="<?php echo get_avatar_url( $author_id ); ?>" alt="<?php echo $author_name; ?>" />
+        <img width="26" height="26" src="<?php echo get_avatar_url( $author_id ); ?>" alt="<?php echo $author_name; ?>" />
     </span>
 
     <span>

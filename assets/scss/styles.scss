@@ -303,8 +303,9 @@ body.single-post{
 
             .entry-content{
                 p > a,
+                ul > li,
                 .lwptoc_item {
-                    line-height: 2;
+                    margin-bottom: 0.7rem;
                 }
             }
        }
@@ -375,6 +376,7 @@ body.author{
     letter-spacing: 0.82px;
     color: $category-name-color;
     margin-bottom: 15px;
+    background: $category-list-background;
     display: block;
 }
 
