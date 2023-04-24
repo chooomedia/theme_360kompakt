@@ -350,10 +350,10 @@ body.single-post .author-info {
 }
 
 /* Post Single */
-body.single-post h1.entry-title {
+body.single-post article .inside-article h1.entry-title {
   text-align: center;
 }
-body.single-post h1.entry-title::after {
+body.single-post article .inside-article h1.entry-title::after {
   display: block;
   height: 2px;
   background: var(--accent-2);
@@ -361,8 +361,12 @@ body.single-post h1.entry-title::after {
   content: " ";
   margin: 9px auto 20px auto;
 }
-body.single-post .featured-image {
+body.single-post article .inside-article .featured-image {
   margin-bottom: 25px !important;
+}
+body.single-post article .inside-article .entry-content p > a,
+body.single-post article .inside-article .entry-content .lwptoc_item {
+  line-height: 2;
 }
 
 /* Add ".." after excerpt */

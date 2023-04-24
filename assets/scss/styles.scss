@@ -281,21 +281,33 @@ body.single-post{
 /* Post Single */
 body.single-post{
 
-    h1.entry-title{
-        text-align: center;
-    }
+    article {
 
-    h1.entry-title::after{
-        display: block;
-        height: 2px;
-        background: var(--accent-2);
-        width: 80px;
-        content: ' ';
-        margin: 9px auto 20px auto;
-    }
+       .inside-article {
+            h1.entry-title{
+                text-align: center;
+            }
 
-    .featured-image{
-        margin-bottom: 25px !important;
+            h1.entry-title::after{
+                display: block;
+                height: 2px;
+                background: var(--accent-2);
+                width: 80px;
+                content: ' ';
+                margin: 9px auto 20px auto;
+            }
+
+            .featured-image{
+                margin-bottom: 25px !important;
+            }
+
+            .entry-content{
+                p > a,
+                .lwptoc_item {
+                    line-height: 2;
+                }
+            }
+       }
     }
 }
 
