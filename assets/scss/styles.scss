@@ -228,6 +228,22 @@ body.single-post{
 
 }
 
+/* WP Forms 7 contact form overwrites */
+input[type="text"],
+input[type="email"],
+#your-message{
+    background-color: --white;
+    color: #000;
+    width: 100%;
+}
+
+.wcf7{
+	background-color:#EFEFEF; /* TODO Define variable color from customizer?*/
+    padding:20px;
+}
+
+
+/* Footer styles */
 .site-footer{
     .footer-widgets .inside-footer-widgets hr{
         max-width: 30px;
