@@ -384,6 +384,11 @@ body.single-post article .inside-article .entry-content ul > li,
 body.single-post article .inside-article .entry-content .lwptoc_item {
   margin-bottom: 0.7rem;
 }
+@media (max-width: 770px) {
+  body.single-post article .inside-article .entry-content ol {
+    margin: 0 0;
+  }
+}
 
 /* Add ".." after excerpt */
 .entry-summary p:after {
@@ -434,9 +439,8 @@ body.author .author_bio_section .author-info {
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.82px;
-  color: #8E9BAA;
+  color: #51596C; /* $category-name-color*/
   margin-bottom: 15px;
-  background: #51596C;
   display: block;
 }
 
@@ -464,7 +468,7 @@ body.author .author_bio_section .author-info {
   border-bottom-right-radius: 0px;
 }
 .posts-list article .inside-article {
-  padding: 15px 20px 20px 20px;
+  padding: 15px 30px 30px 30px;
 }
 .posts-list article .inside-article span.category-list {
   font-size: 0.6em;
@@ -520,8 +524,8 @@ section.featured {
 }
 @media (max-width: 770px) {
   section.featured {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 

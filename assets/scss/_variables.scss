@@ -11,10 +11,10 @@ $recommended-posts-section-breakpoint: 1050px;
 $author-box-background: linear-gradient(90deg, rgba(30,115,190,1) 0%, rgba(30,115,190,1) 40%, rgba(100,159,246,1) 100%);
 $author-box-fallback-background: rgb(30,115,190);
 $pagination-button-background: var(--accent-2);
-$category-list-background: #51596C;
 
 // Text Colors
 $category-name-color: #8E9BAA;
+$category-list-text-color: #51596C;
 
 // Text Sizes
 $small-text: .75rem;
@@ -23,3 +23,12 @@ $archive-excerpt-text: 1rem;
 $author-name-text: 1.3rem; // Author Box Name @ Post Single
 $author-info-text: 1rem; // Author Box Bio @ Post Single
 $pagination-text: 0.9rem;
+
+// Spacings
+@function padding-xl30-sm24($breakpoint) {
+    @if ($breakpoint == 'outer-screen-padding-breakpoint') {
+      @return 15px 24px 24px 24px;
+    } @else {
+      @return 15px 30px 30px 30px;
+    }
+}

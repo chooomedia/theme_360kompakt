@@ -323,6 +323,12 @@ body.single-post{
                 .lwptoc_item {
                     margin-bottom: 0.7rem;
                 }
+
+                @media (max-width: $outer-screen-padding-breakpoint) {
+                    ol {
+                        margin: 0 0;
+                    }
+                }
             }
        }
     }
@@ -384,15 +390,13 @@ body.author{
 
 
 
-
 // Category list style [categorys]-Shortcode
 .category-list{
     text-transform: uppercase;
     font-size: $small-text;
     letter-spacing: 0.82px;
-    color: $category-name-color;
+    color: $category-list-text-color; /* $category-name-color*/
     margin-bottom: 15px;
-    background: $category-list-background;
     display: block;
 }
 
@@ -422,43 +426,44 @@ body.author{
         }
 
        .inside-article{
-        padding: 15px 20px 20px 20px;
+        // padding: 15px 20px 20px 20px;
+        padding: padding-xl30-sm24($outer-screen-padding-breakpoint);
 
-        span.category-list{
-            font-size: 0.6em;
-        }
+            span.category-list{
+                font-size: 0.6em;
+            }
 
-        a.loop-title{
-            font-size: 1em;
-            font-weight: 600;
-                color: #000;
+            a.loop-title{
+                font-size: 1em;
+                font-weight: 600;
+                    color: #000;
+                    text-decoration: none;
+                
+            }
+
+            div.author-info{
+                justify-content: start;
+            }
+
+            div.author-info{
+                margin: 10px 0px;
+            }
+
+            div.entry-summary{
+                margin-top: 0px;
+                margin-bottom: 10px;
+                font-size: 0.7em;
+            }
+
+            div.read-more a{
+                text-transform: uppercase;
+                display: block;
+                padding-top: 10px;
+                border-top: 1px solid var(--border);
+                font-size: $small-text;
+                font-weight: 700;
                 text-decoration: none;
-            
-        }
-
-        div.author-info{
-            justify-content: start;
-        }
-
-        div.author-info{
-            margin: 10px 0px;
-        }
-
-        div.entry-summary{
-            margin-top: 0px;
-            margin-bottom: 10px;
-            font-size: 0.7em;
-        }
-
-        div.read-more a{
-            text-transform: uppercase;
-            display: block;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
-            font-size: $small-text;
-            font-weight: 700;
-            text-decoration: none;
-        }
+            }
        }
     }
 }
@@ -493,8 +498,8 @@ section.featured{
 
     @media (max-width: $outer-screen-padding-breakpoint) {
 
-        padding-left:30px;
-        padding-right: 30px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
         
 }
