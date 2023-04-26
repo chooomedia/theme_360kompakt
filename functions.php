@@ -117,6 +117,8 @@ add_action( 'generate_before_main_content', function() {
 	}
 } );
 
+
+
 // Featured posts on home page
 add_action( 'generate_after_header', function() {
     if ( is_front_page() && is_home() ) {
